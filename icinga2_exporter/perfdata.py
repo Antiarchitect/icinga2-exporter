@@ -70,10 +70,10 @@ class Perfdata:
                         'performance_data' in service_attrs['attrs']['last_check_result'] and \
                         service_attrs['attrs']['last_check_result']['performance_data'] is not None:
                     check_command = service_attrs['attrs']['check_command']
-                    service = service_attrs['attrs']['display_name']
+                    service = service_attrs['attrs']['name']
                     # Get default labels
                     labels = {'hostname': service_attrs['attrs']['host_name'],
-                              'service': Perfdata.valid_prometheus_label_values(service_attrs['attrs']['display_name'])}
+                              'service': Perfdata.valid_prometheus_label_values(service_attrs['attrs']['name'])}
 
                     # For all host custom vars add as label
                     labels.update(Perfdata.get_host_custom_vars(service_attrs))
